@@ -1,0 +1,66 @@
+team:
+    captain - BHUVAN REDDY DUGGI
+    VC - SOUMYA RANJAN MOHARANA
+    TEAM MANAGER - ARNAV MENDIRATTA
+    DEPUTY TEAM MANAGER - ISHA PRAJAPATI
+
+    1. CHASSIS:
+        LEAD - GEORGY MATHEW
+    2. VEHICLE DYNAMICS:
+        LEAD - SUMIT ROHAN
+    3. DRIVETRAIN:
+        LEAD - ANUMITH M
+    4. ELECTRICAL:
+        LEAD- AVANEESH KARTIKEYAN
+    5. MANAGEMENT:
+        LEAD - MD. IRFAN
+    6. HVAC/COOLING(AERODYNAMICS) - SHANTANU
+    7. PROCUREMENT:
+        NIKHIL MANOJ KUMAR
+
+
+
+
+        ELECTRICAL - 13
+        CHASSIS - 4
+        MANAGEMENT - 3
+        AERODYNAMICS - 4
+        DRIVETRAIN - 4
+        VD - 5
+
+SPONSOR:
+        bas uski site ki link daal do
+
+contact:
+        width chaudi krni h content ki
+
+contest: 8
+        ZFR 01 - participated in Formula Student Japan 
+
+        ZFR 02 - FS Japan and JK Tyre FDC India
+
+        ZFR 03 - Formula Student India 2016 (2 awards)
+
+        ZFR 04 - Formula Student Australia ( 16th rank all over, 1st Indian Team to complete all Technical Inspection, No part failure in Endurance)
+
+        ZFR 05 - 13th Rank overall FS Australia
+
+        ZFR 06 - FFS India ( 1st in Static Events, 2nd in Design and Sales, 4th in Cost Report, over-all 7th )
+
+        ZFR 07 - Only team to represent India in FS Australia ( Special Appreciation for custom wire harness implementation from Judges ) - 2019
+
+        2nd in engineering design and 5th overall FFS India - 2022
+
+        ZFR 08 - Formula Imperial ( 1st in cost and manufacturing, 2nd in business presentation ) 2023
+
+        Supra SAE Noida (overall 22 of all 45 teams ) 2024
+
+        Winner in design evaluation and sales presentation FFS Coimbatore - 2024
+
+        Conversion to EV
+
+        ZFR EVO 1 - will participate in Supra SAE Noida 2026 (EV Category)
+
+
+NEWS SECTION : ALL NEW INFOS AND PAST MEDIA APPEARANCES
+
