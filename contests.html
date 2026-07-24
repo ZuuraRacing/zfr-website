@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contests &middot; Zuura Racing</title>
+  <link rel="icon" href="assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <div class="section-head">
+        <div class="eyebrow">03 &mdash; Contests</div>
+        <h2>Where We <span class="accent">Compete</span></h2>
+        <p class="sub">From regional circuits to international tracks, ZUURA takes on the best student engineering teams in the world.</p>
+      </div>
+      <div class="contests-list" id="contestList"></div>
+    </div>
+  </main>
+  <script src="assets/js/main.js"></script>
+  <script>
+  const CONTESTS = [
+    {name:"Supra SAE India 2024", type:"National",      url:"https://www.suprasaeindia.org/"},
+    {name:"FMAE FFS India 2024",  type:"National",      url:"https://www.fmae.in/"},
+    {name:"Formula Imperial",     type:"National",      url:"https://www.formulaimperial.in/"},
+    {name:"FSAE-AUSTRALASIA",     type:"International", url:"https://www.fsae.com.au/"},
+    {name:"FS-ITALY",             type:"International", url:"https://www.formulastudent.it/"},
+    {name:"FS-JAPAN",             type:"International", url:"https://www.formulastudent.jp/"},
+    {name:"FDC",                  type:"International", url:"https://www.fdc.com/"},
+  ];
+  document.getElementById("contestList").innerHTML = CONTESTS.map(c =>
+    '<a href="'+c.url+'" target="_blank" rel="noopener noreferrer">'+
+      '<div class="left">'+
+        '<div class="type '+(c.type==='International'?'intl':'')+'">'+c.type+'</div>'+
+        '<div class="name">'+c.name+'</div>'+
+      '</div>'+
+      '<div class="visit">VISIT \u2197</div>'+
+    '</a>'
+  ).join('');
+  </script>
+</body>
+</html>

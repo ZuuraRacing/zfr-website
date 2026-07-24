@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Departments &middot; Zuura Racing</title>
+  <link rel="icon" href="assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <div class="section-head">
+        <div class="eyebrow">04 &mdash; Departments</div>
+        <h2>The <span class="accent">Disciplines</span></h2>
+        <p class="sub">Seven specialist departments work as one to design, build and race the car.</p>
+      </div>
+      <div class="depts-grid" id="deptGrid"></div>
+    </div>
+  </main>
+  <script src="assets/js/main.js"></script>
+  <script>
+  const DEPTS = [
+    {id:"board",       order:1, icon:"",             name:"Board",            tagline:""},
+    {id:"aero",        order:2, icon:"\uD83D\uDCA8", name:"Aerodynamics",     tagline:"Shape the Air, Shape the Lap Time"},
+    {id:"chassis",     order:3, icon:"\u2699\uFE0F", name:"Chassis",          tagline:"The Backbone of Every Build"},
+    {id:"powertrain",  order:4, icon:"\uD83D\uDD27", name:"Drivetrain",       tagline:"Raw Power, Precisely Delivered"},
+    {id:"electronics", order:5, icon:"\u26A1",       name:"Electrical",       tagline:"The Nervous System of the Car"},
+    {id:"suspension",  order:6, icon:"\uD83D\uDD29", name:"Vehicle Dynamics", tagline:"Control at Every Corner"},
+    {id:"business",    order:7, icon:"\uD83D\uDCCA", name:"Management",       tagline:"The Engine Off the Track"},
+  ];
+  document.getElementById("deptGrid").innerHTML = DEPTS.map(d =>
+    '<article class="dept-card">'+
+      (d.icon ? '<div class="icon">'+d.icon+'</div>' : '<div class="icon icon-empty"></div>')+
+      '<div class="order">Dept 0'+d.order+'</div>'+
+      '<div class="name">'+d.name+'</div>'+
+      (d.tagline ? '<div class="tagline">'+d.tagline+'</div>' : '<div class="tagline">&nbsp;</div>')+
+      '<a class="meet" href="team.html#'+d.id+'">Meet The Team \u2192</a>'+
+    '</article>'
+  ).join('');
+  </script>
+</body>
+</html>

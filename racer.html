@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080706">
+  <meta name="description" content="ZFR Racer — top-down circuit time-trial. Pick a track, chase the racing line, beat your best lap.">
+  <title>Arcade &middot; Zuura Racing</title>
+  <link rel="icon" href="assets/images/logo/Logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/racer.css">
+</head>
+<body>
+  <script>
+    /* Skip the decorative bg-canvas + custom cursor on this page (perf). */
+    window.ZUURA_DISABLE_BG_CANVAS = true;
+    window.ZUURA_DISABLE_CURSOR = true;
+  </script>
+
+  <main class="page">
+    <section class="racer-stage" id="racerStage">
+      <canvas id="racer"></canvas>
+
+      <div class="racer-hud" aria-hidden="true">
+        <div class="cell"><div class="lbl">Lap</div><div class="val" id="hudLap">1</div></div>
+        <div class="cell"><div class="lbl">Current</div><div class="val cur" id="hudCur">0:00.00</div></div>
+        <div class="cell"><div class="lbl">Last</div><div class="val" id="hudLast">--:--</div></div>
+        <div class="cell"><div class="lbl">Best</div><div class="val best" id="hudBest">--:--</div></div>
+      </div>
+
+      <div class="racer-flash" id="racerFlash" aria-hidden="true"></div>
+      <div class="racer-speed" aria-hidden="true"><div class="n" id="hudSpeed">0</div><div class="u">KM/H</div></div>
+      <div id="tdCount" aria-hidden="true">3</div>
+
+      <div class="racer-touch" id="racerTouch" aria-hidden="true">
+        <div class="grp">
+          <button class="tbtn" data-act="left"  aria-label="Steer left">&#9664;</button>
+          <button class="tbtn" data-act="right" aria-label="Steer right">&#9654;</button>
+        </div>
+        <div class="grp mid">
+          <button class="tbtn line" data-act="line" aria-label="Toggle racing line">LINE</button>
+        </div>
+        <div class="grp">
+          <button class="tbtn" data-act="brake" aria-label="Brake">&#9660;</button>
+          <button class="tbtn gas" data-act="gas" aria-label="Accelerate">&#9650;</button>
+        </div>
+      </div>
+
+      <div class="racer-overlay" id="racerOverlay" role="dialog" aria-label="ZFR Racer">
+        <div class="eyebrow2">ZUURA &middot; Arcade</div>
+        <h1 id="ovTitle">ZFR <span>RACER</span></h1>
+        <p id="ovSub">Pick a circuit, drive clean laps and beat your best.</p>
+
+        <div class="trk-selector" id="trkSelector">
+          <button class="trk-arrow" id="trkPrev" aria-label="Previous track">&#9664;</button>
+          <div class="trk-info">
+            <div class="trk-name" id="trkName">Zuura GP</div>
+            <div class="trk-country" id="trkCountry">Home Circuit</div>
+          </div>
+          <button class="trk-arrow" id="trkNext" aria-label="Next track">&#9654;</button>
+        </div>
+
+        <div class="best-line">Best Lap&nbsp; <b id="ovBest">--:--</b></div>
+        <button class="line-toggle" id="lineToggle">Racing line: Off</button>
+        <button class="racer-btn" id="racerStart">Start</button>
+        <div class="racer-keys">
+          <b>&uarr;/W</b> gas &middot; <b>&darr;/S</b> brake &middot; <b>&larr;/&rarr;</b> steer &middot;
+          <b>L</b> racing line &middot; <b>[ ]</b> change track &middot; <b>P</b> pause &middot; <b>R</b> restart
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/racer-tracks.js"></script>
+  <script src="assets/js/racer.js"></script>
+</body>
+</html>

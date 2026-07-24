@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sponsors &middot; Zuura Racing</title>
+  <link rel="icon" href="assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <div class="section-head">
+        <div class="eyebrow">09 &mdash; Sponsors</div>
+        <h2>Our <span class="accent">Partners</span></h2>
+        <p class="sub">ZUURA Racing exists because of the extraordinary support of our sponsors.</p>
+      </div>
+
+      <div id="tierWrap"></div>
+
+      <div class="spons-stats">
+        <div class="stat"><div class="num">19</div><div class="lbl">Total</div></div>
+        <div class="stat"><div class="num">1</div><div class="lbl">Title</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">Premier</div></div>
+        <div class="stat"><div class="num">6</div><div class="lbl">Official</div></div>
+        <div class="stat"><div class="num">5</div><div class="lbl">Supporting</div></div>
+        <div class="stat"><div class="num">3</div><div class="lbl">Knowledge</div></div>
+      </div>
+
+      <div class="thanks">
+        <img src="assets/images/logo/Logo.png" alt="ZUURA">
+        <h3>Thank You To Our <span class="accent">Supporters</span></h3>
+        <p>Every lap we run, every component we design &mdash; none of it would be possible without our partners. You are part of the ZUURA family.</p>
+        <div class="est">
+          <div class="gradient"></div>
+          <div class="brand">ZUURA Racing</div>
+          <div class="since">Est. 2013</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="assets/js/main.js"></script>
+  <script>
+  const SPONSORS = [
+    {tier:"Title",      name:"KW Keizer Aluminium Wheels", url:"https://keizerwheels.com/",                     img:"assets/images/sponsors/KWKeizerAluminumWheels.jpeg", tagline:"Aluminium Supply Partner",        color:"#e60028"},
+    {tier:"Premier",    name:"MRF",                        url:"https://www.mrftyres.com/",                     img:"assets/images/sponsors/MRF.jpg",                     tagline:"",                                 color:"#c8102e"},
+    {tier:"Premier",    name:"MATLAB",                     url:"https://in.mathworks.com/products/matlab.html", img:"assets/images/sponsors/MATLAB.png",                  tagline:"MATLAB & Simulink Partner",        color:"#f0c000"},
+    {tier:"Premier",    name:"Ricardo",                    url:"https://www.ricardo.com/en",                    img:"assets/images/sponsors/Ricardo.jpg",                 tagline:"",                                 color:"#003087"},
+    {tier:"Premier",    name:"ThingSpeak",                 url:"https://thingspeak.mathworks.com/",             img:"assets/images/sponsors/ThingSpeak.png",              tagline:"",                                 color:"#cc0000"},
+    {tier:"Official",   name:"PPT Power Tools",            url:"https://www.powertextools.com/#/home",          img:"assets/images/sponsors/PPT Power Tools.png",         tagline:"",                                 color:"#007dc3"},
+    {tier:"Official",   name:"Pingel",                     url:"https://pingelonline.com/",                     img:"",                                                    tagline:"",                                 color:"#ffa500"},
+    {tier:"Official",   name:"ANSYS",                      url:"https://www.ansys.com",                         img:"assets/images/sponsors/Ansys.png",                   tagline:"Simulation Software Partner",      color:"#ffb71b"},
+    {tier:"Official",   name:"DS SolidWorks",              url:"https://www.solidworks.com",                    img:"assets/images/sponsors/DS SolidWorks.png",           tagline:"",                                 color:"#e2231a"},
+    {tier:"Official",   name:"Altium",                     url:"https://www.altium.com/in",                     img:"",                                                    tagline:"",                                 color:"#a5005a"},
+    {tier:"Official",   name:"Agni Motors",                url:"https://www.agnimotors.com/",                   img:"assets/images/sponsors/Agni Motors.png",             tagline:"",                                 color:"#e03200"},
+    {tier:"Supporting", name:"Advanced Composites",        url:"https://www.advancedcomposites.com/",           img:"",                                                    tagline:"",                                 color:"#cc0000"},
+    {tier:"Supporting", name:"ASAP Motorsports",           url:"https://asap-motorsports.com/",                 img:"assets/images/sponsors/ASAP Motorsports.png",        tagline:"",                                 color:"#cc0032"},
+    {tier:"Supporting", name:"Bender",                     url:"https://www.bender-in.com/",                    img:"assets/images/sponsors/Bender.png",                  tagline:"",                                 color:"#4a4a4a"},
+    {tier:"Supporting", name:"Kelly",                      url:"https://kellycontroller.com/",                  img:"assets/images/sponsors/Kelly.jpg",                   tagline:"",                                 color:"#e4003b"},
+    {tier:"Supporting", name:"Flauta Customs",             url:"https://www.flautacustoms.com/",                img:"assets/images/sponsors/Flauta Customs.jpg",          tagline:"",                                 color:"#e8440e"},
+    {tier:"Knowledge",  name:"CustomWorks",                url:"https://www.customworksrc.com/",                img:"assets/images/sponsors/CustomWorks.png",             tagline:"",                                 color:"#00b0aa"},
+    {tier:"Knowledge",  name:"Drexler Automotive",         url:"https://www.drexler-automotive.com/en/",        img:"assets/images/sponsors/Drexler Automotive.png",      tagline:"",                                 color:"#0076a8"},
+    {tier:"Knowledge",  name:"Differenz System",           url:"https://www.differenzsystem.com",               img:"",                                                    tagline:"Data Acquisition & Telemetry Partner", color:"#0076a8"},
+  ];
+  const TIER_META = {
+    Title:      {label:"Title Sponsors",      accent:"#D4A017",                cls:"t-title"},
+    Premier:    {label:"Premier Partners",    accent:"rgba(212,160,23,.7)",    cls:"t-premier"},
+    Official:   {label:"Official Sponsors",   accent:"rgba(212,160,23,.5)",    cls:"t-official"},
+    Supporting: {label:"Supporting Sponsors", accent:"rgba(212,160,23,.35)",   cls:"t-supporting"},
+    Knowledge:  {label:"Knowledge Partners",  accent:"rgba(212,160,23,.25)",   cls:"t-knowledge"},
+  };
+  const ORDER = ["Title","Premier","Official","Supporting","Knowledge"];
+  const wrap = document.getElementById("tierWrap");
+  wrap.innerHTML = ORDER.map(t => {
+    const m = TIER_META[t];
+    const cards = SPONSORS.filter(s => s.tier===t).map(s =>
+      '<a class="sponsor-card" href="'+s.url+'" target="_blank" rel="noopener noreferrer">'+
+        '<div class="bar" style="background:linear-gradient(to right,'+s.color+','+s.color+'55,transparent)"></div>'+
+        '<div class="logo">'+
+          (s.img ? '<img src="'+s.img+'" alt="'+s.name+'" style="filter:drop-shadow(0 0 10px '+s.color+'55)">'
+                 : '<div style="font-family:\'Bebas Neue\',sans-serif;font-size:1.15rem;color:'+s.color+';text-align:center">'+s.name+'</div>')+
+        '</div>'+
+        '<div class="foot">'+
+          '<div class="meta">'+
+            '<div class="nm">'+s.name+'</div>'+
+            (s.tagline ? '<div class="tg">'+s.tagline+'</div>' : '')+
+          '</div>'+
+          '<div class="arr" style="color:'+s.color+'">\u2197</div>'+
+        '</div>'+
+      '</a>'
+    ).join('');
+    return '<section class="tier '+m.cls+'">'+
+      '<div class="tier-head">'+
+        '<div class="rule" style="background:linear-gradient(to right,'+m.accent+',transparent)"></div>'+
+        '<div class="label" style="color:'+m.accent+'">'+m.label+'</div>'+
+        '<div class="rule" style="background:linear-gradient(to left,'+m.accent+',transparent)"></div>'+
+      '</div>'+
+      '<div class="grid">'+cards+'</div>'+
+    '</section>';
+  }).join('');
+  </script>
+</body>
+</html>

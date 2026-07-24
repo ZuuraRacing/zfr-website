@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>History &middot; Zuura Racing</title>
+  <link rel="icon" href="assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <div class="section-head">
+        <div class="eyebrow">07 &mdash; History</div>
+        <h2>Our <span class="accent">Journey</span></h2>
+        <p class="sub">From a sketch on a whiteboard to the national stage.</p>
+      </div>
+      <div class="timeline" id="timeline">
+        <div class="rail"></div>
+      </div>
+    </div>
+  </main>
+  <script src="assets/js/main.js"></script>
+  <script>
+  const HIST = [
+    {year:"2013", title:"Team Founded",                desc:"A group of engineering students form ZUURA Racing."},
+    {year:"2014", title:"ZFR-01 Built",                desc:"First car completed. FS-JAPAN \u2014 most cost efficient car."},
+    {year:"2015", title:"FS-JAPAN & FDC",              desc:"ZFR-02 with improved documentation."},
+    {year:"2016", title:"FS-ITALY",                    desc:"ZFR-03: revamped powertrain, 20% lighter."},
+    {year:"2017", title:"FSAE-AUSTRALASIA",            desc:"ZFR-04: first Indian team to clear technical inspection."},
+    {year:"2018", title:"ZFR-05 & ZFR-06",             desc:"Multiple podiums at FSAE-AUSTRALASIA and FFS-INDIA."},
+    {year:"2019", title:"FSAE-AUSTRALASIA",            desc:"ZFR-07: Special Appreciation Award, 13th rank."},
+    {year:"2022", title:"FFS-INDIA",                   desc:"ZFR-07: 2nd Design Evaluation, 5th overall."},
+    {year:"2023", title:"Formula Imperial",            desc:"ZFR-08: 1st Business Plan, 3rd CVs, 7th overall."},
+    {year:"2024", title:"Supra SAE & FMAE FFS INDIA",  desc:"Secured 22nd rank in Supra SAE and 2nd rank in FMAE FFS INDIA."},
+  ];
+  const tl = document.getElementById("timeline");
+  tl.insertAdjacentHTML("beforeend", HIST.map((e,i) => {
+    const side = i%2===0 ? "left" : "right";
+    return '<div class="item '+side+'">'+
+             '<div class="year">'+e.year+'</div>'+
+             '<div class="dot"></div>'+
+             '<div class="card">'+
+               '<div class="title">'+e.title+'</div>'+
+               '<p class="desc">'+e.desc+'</p>'+
+             '</div>'+
+           '</div>';
+  }).join(''));
+  </script>
+</body>
+</html>

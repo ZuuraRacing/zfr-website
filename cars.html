@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cars &middot; Zuura Racing</title>
+  <link rel="icon" href="assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <div class="section-head">
+        <div class="eyebrow">02 &mdash; Cars</div>
+        <h2>Our <span class="accent">Machines</span></h2>
+        <p class="sub">Every car we build is a full engineering program &mdash; student-designed and fabricated from scratch.</p>
+      </div>
+      <div class="cars-grid" id="carsGrid"></div>
+    </div>
+  </main>
+  <script src="assets/js/main.js"></script>
+  <script>
+  const CARS = [
+    {id:"zfr01", num:"01", img:"assets/images/cars/zfr01.png", tag:"FS-JAPAN \u00b7 2014",            name:"ZFR-01", desc:"Most cost efficient car in the event."},
+    {id:"zfr02", num:"02", img:"assets/images/cars/zfr02.png", tag:"FS-JAPAN & FDC \u00b7 2015",       name:"ZFR-02", desc:"Improved Documentation."},
+    {id:"zfr03", num:"03", img:"assets/images/cars/zfr03.png", tag:"FS-ITALY \u00b7 2016",             name:"ZFR-03", desc:"Revamped Powertrain \u2014 20% lighter than ZFR-02."},
+    {id:"zfr04", num:"04", img:"assets/images/cars/zfr04.png", tag:"FSAE-AUSTRALASIA \u00b7 2017",     name:"ZFR-04", desc:"First Indian team ever to clear technical inspection. 16th rank among CVs."},
+    {id:"zfr05", num:"05", img:"assets/images/cars/zfr05.png", tag:"FSAE-AUSTRALASIA \u00b7 2018",     name:"ZFR-05", desc:"7th in Business Presentation \u00b7 10th in Cost Analysis \u00b7 13th rank overall among CVs."},
+    {id:"zfr06", num:"06", img:"assets/images/cars/zfr06.png", tag:"FFS-INDIA \u00b7 2018",            name:"ZFR-06", desc:"1st in overall Static Events \u00b7 2nd in Design Evaluation \u00b7 2nd in Sales Presentation \u00b7 7th rank overall."},
+    {id:"zfr07", num:"07", img:"assets/images/cars/zfr07.png", tag:"FSAE-AUSTRALASIA \u00b7 2019 & 2022 | FFS-INDIA", name:"ZFR-07", desc:"Special Appreciation Award: Custom Harness. 13th overall CVs \u00b7 2nd Design Evaluation \u00b7 5th overall rank."},
+    {id:"zfr08", num:"08", img:"assets/images/cars/zfr08.png", tag:"Formula Imperial \u00b7 2023",     name:"ZFR-08", desc:"1st in Business Plan and Cost \u00b7 3rd overall among CVs \u00b7 7th overall rank."},
+  ];
+  const grid = document.getElementById("carsGrid");
+  grid.innerHTML = CARS.map(c =>
+    '<article class="car-card">'+
+      '<div class="img-wrap">'+
+        '<div class="num">'+c.num+'</div>'+
+        '<img src="'+c.img+'" alt="'+c.name+'">'+
+      '</div>'+
+      '<div class="body">'+
+        '<div class="tag">'+c.tag+'</div>'+
+        '<div class="name">'+c.name+'</div>'+
+        '<div class="desc">'+c.desc+'</div>'+
+      '</div>'+
+    '</article>'
+  ).join('');
+  </script>
+</body>
+</html>

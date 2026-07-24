@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact &middot; Zuura Racing</title>
+  <link rel="icon" href="assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <div class="eyebrow">10 &mdash; Contact</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,7vw,4.8rem);line-height:.95;margin:10px 0 36px">
+        Get In <span class="accent" style="color:var(--gold)">Touch</span>
+      </h2>
+
+      <div class="contact-info">
+        <div class="card">
+          <span class="ic">&#128231;</span>
+          <div class="lbl">Email Us</div>
+          <div class="val">admin@zuuraracing.com</div>
+        </div>
+        <div class="card">
+          <span class="ic">&#128205;</span>
+          <div class="lbl">Find Us</div>
+          <div class="val">VIT, Chennai</div>
+          <div class="sub">Open Mon&ndash;Sat, 9AM&ndash;8PM</div>
+        </div>
+        <div class="card">
+          <span class="ic">&#128241;</span>
+          <div class="lbl">Social Media</div>
+          <div class="sub">Instagram &middot; LinkedIn &middot; YouTube</div>
+          <div class="socials">
+            <a href="https://www.instagram.com/zuuraformularacing/" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/ig.png" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/yt.png" alt="YouTube"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-layout">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="h">Send Us A Message</div>
+          <p class="p">Whether joining, sponsoring or collaborating &mdash; we'll get back to you.</p>
+          <div class="row">
+            <input name="name"  placeholder="Full Name *">
+            <input name="email" placeholder="Email Address *" type="email">
+          </div>
+          <div class="row">
+            <input name="phone" placeholder="Phone Number">
+            <input name="org"   placeholder="Organisation">
+          </div>
+          <div class="row">
+            <select name="subject">
+              <option value="">Subject *</option>
+              <option>Join The Team</option>
+              <option>Sponsorship Inquiry</option>
+              <option>Media / Press</option>
+              <option>General Inquiry</option>
+            </select>
+            <select name="role">
+              <option value="">Department Interest</option>
+              <option>Board</option>
+              <option>Aerodynamics</option>
+              <option>Chassis</option>
+              <option>Drivetrain</option>
+              <option>Electrical</option>
+              <option>Vehicle Dynamics</option>
+              <option>Management</option>
+            </select>
+          </div>
+          <textarea name="message" rows="5" placeholder="Your Message *"></textarea>
+          <button type="button" class="send" id="sendBtn">Send Message &rarr;</button>
+        </form>
+
+        <aside class="contact-side">
+          <div class="brand-block">
+            <img src="assets/images/logo/Logo.png" alt="ZUURA">
+            <div class="nm">ZUURA <span>RACING</span></div>
+            <p class="quote">"We don't just build cars. We build engineers."</p>
+          </div>
+          <div class="faq">
+            <div class="h">FAQ</div>
+            <div class="item"><div class="q">When can I join?</div><p class="a">Applications open each February and August.</p></div>
+            <div class="item"><div class="q">Do I need experience?</div><p class="a">No! Drive to learn is what matters.</p></div>
+            <div class="item"><div class="q">How much time?</div><p class="a">~8&ndash;15 hours/week during build season.</p></div>
+            <div class="item"><div class="q">Can companies sponsor?</div><p class="a">Yes &mdash; contact us with 'Sponsorship Inquiry'.</p></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const sendBtn = document.getElementById("sendBtn");
+    sendBtn.addEventListener("click", () => {
+      sendBtn.classList.add("sent");
+      sendBtn.textContent = "\u2713 Message Sent!";
+      setTimeout(() => {
+        sendBtn.classList.remove("sent");
+        sendBtn.textContent = "Send Message \u2192";
+      }, 3500);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>News &middot; Zuura Racing</title>
+  <link rel="icon" href="assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <div class="section-head">
+        <div class="eyebrow">08 &mdash; News</div>
+        <h2>Latest <span class="accent">Updates</span></h2>
+        <p class="sub">Announcements, results, recruitment drives and everything happening at ZUURA Racing.</p>
+      </div>
+      <div class="team-tabs" id="newsTabs"></div>
+      <div class="news-grid" id="newsGrid"></div>
+    </div>
+  </main>
+  <script src="assets/js/main.js"></script>
+  <script>
+  const NEWS = [
+    {id:1, category:"Competition", date:"Mar 2025", tag:"Upcoming",  tagColor:"#D4A017",
+     title:"ZR-02 Electric Enters Final Assembly Phase",
+     summary:"Our electric car has passed structural validation and is now in final assembly.",
+     icon:"\uD83C\uDFCE\uFE0F"},
+    {id:2, category:"Recruitment", date:"Feb 2025", tag:"Open",      tagColor:"#4CAF50",
+     title:"2025 Recruitment Drive Now Open",
+     summary:"Applications open for the 2025-26 season across all departments.",
+     icon:"\uD83C\uDF93"},
+    {id:3, category:"Workshop",    date:"Jan 2025", tag:"Completed", tagColor:"rgba(232,224,208,.6)",
+     title:"CFD Workshop: Aerodynamics Sprint Training",
+     summary:"30 team members completed a two-day intensive CFD training using ANSYS Fluent.",
+     icon:"\uD83D\uDCA8"},
+  ];
+  const CATS = ["All", ...new Set(NEWS.map(n => n.category))];
+  let active = "All";
+  const tabs = document.getElementById("newsTabs");
+  const grid = document.getElementById("newsGrid");
+  function render(){
+    tabs.innerHTML = CATS.map(c =>
+      '<button class="tab '+(c===active?'is-active':'')+'" data-c="'+c+'">'+c+'</button>'
+    ).join('');
+    tabs.querySelectorAll('button').forEach(b =>
+      b.addEventListener('click', () => { active = b.dataset.c; render(); })
+    );
+    const list = active==='All' ? NEWS : NEWS.filter(n => n.category===active);
+    grid.innerHTML = list.map(n =>
+      '<button class="news-card">'+
+        '<div class="top">'+
+          '<span class="icon">'+n.icon+'</span>'+
+          '<div>'+
+            '<div class="cat">'+n.category+'</div>'+
+            '<div class="date">'+n.date+'</div>'+
+          '</div>'+
+          '<span class="tag" style="color:'+n.tagColor+'">'+n.tag+'</span>'+
+        '</div>'+
+        '<div class="body">'+
+          '<div class="title">'+n.title+'</div>'+
+          '<div class="summary">'+n.summary+'</div>'+
+          '<div class="read-more">Read More &rarr;</div>'+
+        '</div>'+
+      '</button>'
+    ).join('');
+  }
+  render();
+  </script>
+</body>
+</html>

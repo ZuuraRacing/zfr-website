@@ -1,0 +1,174 @@
+/* =====================================================
+   ZUURA Racer — game UI (racer.css)
+   Lives inside .page (z-index:1), so the site's nav drawer,
+   hamburger and brand mark naturally render above it.
+   Uses tokens from main.css (--gold/--bg/--cream/--muted).
+   ===================================================== */
+
+.racer-stage{
+  position:relative;
+  width:100%;
+  height:100vh;        /* fallback */
+  height:100dvh;
+  overflow:hidden;
+  background:#070605;
+  touch-action:none;
+  user-select:none;-webkit-user-select:none;
+}
+
+#racer{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  display:block;z-index:1;
+}
+
+/* ---------------- HUD (top centre, clear of hamburger/brand) -------------- */
+.racer-hud{
+  position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  z-index:3;pointer-events:none;
+  display:flex;align-items:flex-start;gap:26px;text-align:center;
+}
+.racer-hud .cell{display:flex;flex-direction:column;align-items:center;line-height:1}
+.racer-hud .lbl{
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;
+  font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--gold);opacity:.85;margin-bottom:5px;
+}
+.racer-hud .val{
+  font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--cream);
+  font-variant-numeric:tabular-nums;letter-spacing:.02em;
+}
+.racer-hud .val.cur{font-size:2.6rem;color:#fff;text-shadow:0 0 18px rgba(212,160,23,.45)}
+.racer-hud .val.best{color:var(--gold)}
+
+/* ---------------- Speedometer -------------------------------------------- */
+.racer-speed{
+  position:absolute;left:18px;bottom:18px;z-index:3;pointer-events:none;
+  display:flex;align-items:baseline;gap:6px;
+}
+.racer-speed .n{
+  font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--cream);
+  line-height:.9;font-variant-numeric:tabular-nums;
+  text-shadow:0 0 14px rgba(0,0,0,.6);
+}
+.racer-speed .u{
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;
+  letter-spacing:.2em;color:var(--gold);font-size:.7rem;
+}
+
+/* ---------------- "New best lap" flash ------------------------------------ */
+.racer-flash{
+  position:absolute;top:84px;left:50%;transform:translateX(-50%);
+  z-index:3;pointer-events:none;
+  font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.22em;
+  color:var(--gold);text-shadow:0 0 22px rgba(212,160,23,.65);
+  opacity:0;transition:opacity .35s ease;white-space:nowrap;
+}
+.racer-flash.show{opacity:1}
+
+/* ---------------- Overlays (start / pause) -------------------------------- */
+.racer-overlay{
+  position:absolute;inset:0;z-index:4;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:16px;text-align:center;padding:24px;
+  background:radial-gradient(ellipse at center, rgba(8,7,6,.5), rgba(8,7,6,.88));
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+}
+.racer-overlay.is-hidden{display:none}
+.racer-overlay .eyebrow2{
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;
+  font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);
+}
+.racer-overlay h1{
+  font-family:'Bebas Neue',sans-serif;font-weight:400;margin:0;
+  font-size:clamp(2.6rem,9vw,5rem);letter-spacing:.04em;color:#fff;
+}
+.racer-overlay h1 span{color:var(--gold)}
+.racer-overlay p{
+  font-family:'Rajdhani',sans-serif;color:var(--muted);max-width:430px;margin:0;
+  font-size:.98rem;line-height:1.5;
+}
+.racer-overlay .best-line{
+  font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.1em;color:var(--cream);
+}
+.racer-overlay .best-line b{color:var(--gold)}
+.racer-btn{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;
+  letter-spacing:.2em;font-size:1rem;color:var(--bg);background:var(--gold);
+  border:none;padding:14px 36px;border-radius:2px;cursor:pointer;margin-top:4px;
+  transition:transform .15s, box-shadow .15s;box-shadow:0 0 30px rgba(212,160,23,.25);
+}
+.racer-btn:hover{transform:translateY(-2px);box-shadow:0 0 42px rgba(212,160,23,.45)}
+.racer-keys{
+  font-family:'Rajdhani',sans-serif;font-size:.85rem;color:var(--muted);
+  letter-spacing:.03em;line-height:1.8;
+}
+.racer-keys b{color:var(--cream);font-weight:600}
+
+/* ---------------- Touch controls (coarse pointers only) ------------------- */
+.racer-touch{display:none}
+@media (hover:none),(pointer:coarse){
+  .racer-touch{
+    position:absolute;inset:auto 0 0 0;z-index:3;
+    display:flex;justify-content:space-between;align-items:flex-end;
+    padding:0 16px 22px;pointer-events:none;
+  }
+  .racer-touch .grp{display:flex;gap:14px;pointer-events:auto}
+  .tbtn{
+    width:84px;height:84px;border-radius:50%;
+    background:rgba(8,7,6,.42);border:2px solid rgba(212,160,23,.7);
+    color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.8rem;
+    display:flex;align-items:center;justify-content:center;
+    touch-action:none;user-select:none;-webkit-user-select:none;
+    -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+  }
+  .tbtn.gas{width:90px;height:90px;border-color:var(--gold);color:var(--cream);background:rgba(212,160,23,.16)}
+  .tbtn.active{background:rgba(212,160,23,.42);color:var(--bg)}
+  /* keep speed clear of the thumb clusters */
+  .racer-speed{left:50%;transform:translateX(-50%);bottom:30px}
+}
+
+/* ---------------- Small screens ------------------------------------------ */
+@media (max-width:520px){
+  .racer-hud{gap:15px}
+  .racer-hud .val{font-size:1.5rem}
+  .racer-hud .val.cur{font-size:2rem}
+  .racer-speed .n{font-size:2.3rem}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .racer-flash,.racer-btn{transition:none}
+}
+
+/* ---------------- Countdown ---------------- */
+#tdCount{
+  position:absolute;inset:0;z-index:4;display:none;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,22vw,12rem);color:#fff;
+  text-shadow:0 0 44px rgba(212,160,23,.6);pointer-events:none;letter-spacing:.04em;
+}
+
+/* ---------------- Track selector + racing-line toggle (overlay) ---------- */
+.trk-selector{display:flex;align-items:center;gap:18px}
+.trk-arrow{
+  width:44px;height:44px;border-radius:50%;background:transparent;border:1px solid rgba(212,160,23,.5);
+  color:var(--gold);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .15s,transform .15s;
+}
+.trk-arrow:hover{background:rgba(212,160,23,.18);transform:scale(1.06)}
+.trk-info{min-width:210px}
+.trk-name{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;color:#fff;line-height:1}
+.trk-country{font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;font-size:.6rem;color:var(--gold);margin-top:4px}
+.line-toggle{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  font-size:.78rem;color:var(--cream);background:transparent;border:1px solid rgba(57,211,83,.5);
+  padding:9px 18px;border-radius:2px;cursor:pointer;transition:background .15s,border-color .15s;
+}
+.line-toggle.on{background:rgba(57,211,83,.18);border-color:#39d353;color:#fff}
+
+/* line-toggle button inside the touch cluster (mobile) */
+@media (hover:none),(pointer:coarse){
+  .racer-touch .grp.mid{display:flex;align-self:flex-end;margin:0 auto 6px}
+  .tbtn.line{width:60px;height:60px;font-size:1rem;border-color:rgba(57,211,83,.6);color:#39d353}
+  .tbtn.line.active{background:rgba(57,211,83,.35);color:var(--bg)}
+}

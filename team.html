@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Team &middot; Zuura Racing</title>
+  <link rel="icon" href="assets/images/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <div class="section-head">
+        <div class="eyebrow">05 &mdash; Team</div>
+        <h2>The <span class="accent">Crew</span></h2>
+        <p class="sub">Drivers, engineers, designers and strategists &mdash; the people behind every lap.</p>
+      </div>
+      <div class="team-tabs" id="teamTabs"></div>
+      <div id="teamGrid"></div>
+    </div>
+  </main>
+  <script src="assets/js/main.js"></script>
+  <script>
+  const TEAM = [
+    // Board
+    {dept:"Board",            name:"Duggi Bhuvan Reddy",        role:"Team Captain",          img:"assets/images/team/Bhuvan.jpeg"},
+    {dept:"Board",            name:"Soumya Ranjan Moharana",    role:"Vice Captain",          img:"assets/images/team/Soumya Ranjan Moharana.jpg"},
+    {dept:"Board",            name:"Arnav Mendiratta",          role:"Team Manager",          img:"assets/images/team/Anav Mendiratta.jpg"},
+    {dept:"Board",            name:"Isha Prajapati",            role:"Deputy Team Manager",   img:"assets/images/team/Isha.jpg"},
+    // Aerodynamics
+    {dept:"Aerodynamics",     name:"Soumya Porwal",             role:"Aerodynamics Lead",     img:"assets/images/team/Soumya Porwall.jpeg"},
+    {dept:"Aerodynamics",     name:"Shanthanu Nitin Rege",      role:"HVAC Lead",             img:"assets/images/team/Shanthanu Rege.jpg"},
+    {dept:"Aerodynamics",     name:"Shourya Sanjay Hawal",      role:"",                      img:"assets/images/team/Shourya.jpg"},
+    {dept:"Aerodynamics",     name:"Sreeparvathi Devesh",       role:"",                      img:"assets/images/team/Sreeparvathi Devesh.jpg"},
+    {dept:"Aerodynamics",     name:"Mohammed Shaahid M",        role:"",                      img:"assets/images/team/Mohammed Shaahid M.jpg"},
+    // Chassis
+    {dept:"Chassis",          name:"Georgy Mathew",             role:"Department Head",       img:"assets/images/team/Georgy.jpeg"},
+    {dept:"Chassis",          name:"Prasanna S",                role:"",                      img:"assets/images/team/Prasanna. S.jpg"},
+    {dept:"Chassis",          name:"Megh C Singhi",             role:"",                      img:"assets/images/team/Megh C singhi.jpg"},
+    {dept:"Chassis",          name:"Vetrivel VP",               role:"",                      img:"assets/images/team/Vetrivel.jpg"},
+    {dept:"Chassis",          name:"Jasakaran Singh",           role:"",                      img:"assets/images/team/Jaskaran Singh.jpg"},
+    // Drivetrain
+    {dept:"Drivetrain",       name:"Anumith M",                 role:"Department Head",       img:"assets/images/team/Anumith.jpg"},
+    {dept:"Drivetrain",       name:"Daksh Jain",                role:"",                      img:"assets/images/team/Daksh.jpeg"},
+    {dept:"Drivetrain",       name:"SrengeethRakkesh R",        role:"",                      img:"assets/images/team/SrengeethRakkesh R.jpg"},
+    {dept:"Drivetrain",       name:"Krishna Abhinav Nippani",   role:"",                      img:"assets/images/team/Krishna Abhinav Nippani.jpg"},
+    // Electrical
+    {dept:"Electrical",       name:"Avaneesh",                  role:"Department Head",       img:"assets/images/team/Avaneesh.jpg"},
+    {dept:"Electrical",       name:"Ankit",                     role:"",                      img:"assets/images/team/Ankit.jpg"},
+    {dept:"Electrical",       name:"Abhinav Pramod",            role:"",                      img:"assets/images/team/Abhinav Pramod.jpg"},
+    {dept:"Electrical",       name:"Rahul U",                   role:"",                      img:"assets/images/team/Rahul U.jpg"},
+    {dept:"Electrical",       name:"Seshanth P",                role:"",                      img:"assets/images/team/Seshant P.jpg"},
+    {dept:"Electrical",       name:"Swagat Mallik",             role:"",                      img:"assets/images/team/Swagat.jpg"},
+    {dept:"Electrical",       name:"Tharun Balamurugan",        role:"",                      img:"assets/images/team/Tarun Balamurugan.jpg"},
+    {dept:"Electrical",       name:"K Bala Trishank",           role:"",                      img:"assets/images/team/Bala Trishank.jpg"},
+    {dept:"Electrical",       name:"Sreeram Pichaimani",        role:"",                      img:"assets/images/team/Sreeram Pichaimani.jpg"},
+    // Vehicle Dynamics
+    {dept:"Vehicle Dynamics", name:"Sumit Rohan",               role:"Department Head",       img:"assets/images/team/Sumit Rohan.jpg"},
+    {dept:"Vehicle Dynamics", name:"S. Gaurav Raghavendhar",    role:"",                      img:"assets/images/team/S.Gaurav Raghavendhar.jpg"},
+    {dept:"Vehicle Dynamics", name:"Sharath Atchayam",          role:"",                      img:"assets/images/team/Sharath Atchayan.jpg"},
+    {dept:"Vehicle Dynamics", name:"Jaishith R",                role:"",                      img:"assets/images/team/Jaishith R.jpg"},
+    {dept:"Vehicle Dynamics", name:"Bhaavya Sri",               role:"",                      img:"assets/images/team/Bhaavya Sri.jpg"},
+    // Management
+    {dept:"Management",       name:"Md. Irfan",                 role:"Department Head",       img:"assets/images/team/Irfan.jpg"},
+    {dept:"Management",       name:"Akhil Kumar",               role:"",                      img:"assets/images/team/Akhil Kumar.jpg"},
+    {dept:"Management",       name:"Khyati Chaturvedi",         role:"",                      img:"assets/images/team/Khyati.jpeg"},
+    {dept:"Management",       name:"Srishtee Gupta",            role:"Software",              img:"assets/images/team/Srishtee Gupta.jpg"},
+  ];
+  const DEPT_META = {
+    "All":              {icon:"\u25A0"},
+    "Board":            {icon:"\u2605"},
+    "Aerodynamics":     {icon:"\uD83D\uDCA8"},
+    "Chassis":          {icon:"\u2699\uFE0F"},
+    "Drivetrain":       {icon:"\uD83D\uDD27"},
+    "Electrical":       {icon:"\u26A1"},
+    "Vehicle Dynamics": {icon:"\uD83D\uDD29"},
+    "Management":       {icon:"\uD83D\uDCCA"},
+  };
+  const DEPT_ORDER = ["Board","Aerodynamics","Chassis","Drivetrain","Electrical","Vehicle Dynamics","Management"];
+  const DEPTS_TABS = ["All",...DEPT_ORDER];
+  const tabs = document.getElementById("teamTabs");
+  const grid = document.getElementById("teamGrid");
+  let active = location.hash ? location.hash.slice(1) : "All";
+  const hashMap = {board:"Board",aero:"Aerodynamics",chassis:"Chassis",powertrain:"Drivetrain",electronics:"Electrical",suspension:"Vehicle Dynamics",business:"Management"};
+  if (hashMap[active]) active = hashMap[active];
+
+  const isLead = m => /lead|head|captain|manager/i.test(m.role);
+
+  function memberCard(m){
+    return '<div class="member'+(isLead(m)?' is-lead':'')+'">'+
+      '<div class="photo">'+
+        (isLead(m) ? '<div class="lead-badge">Lead</div>' : '')+
+        '<img src="'+m.img+'" alt="'+m.name+'" loading="lazy">'+
+      '</div>'+
+      '<div class="info">'+
+        '<div class="name">'+m.name+'</div>'+
+        (m.role ? '<div class="role">'+m.role+'</div>' : '<div class="role">&nbsp;</div>')+
+        '<div class="dept">'+m.dept+'</div>'+
+      '</div>'+
+    '</div>';
+  }
+
+  function deptSection(d, members){
+    const icon = (DEPT_META[d]||{}).icon || "";
+    return '<section class="team-section" id="sec-'+d.replace(/\s+/g,'-').toLowerCase()+'">'+
+      '<div class="team-section-head">'+
+        '<div class="left">'+
+          '<span class="dept-icon">'+icon+'</span>'+
+          '<span class="dept-name">'+d+'</span>'+
+        '</div>'+
+        '<div class="right">'+members.length+' Member'+(members.length===1?'':'s')+'</div>'+
+      '</div>'+
+      '<div class="team-grid">'+members.map(memberCard).join('')+'</div>'+
+    '</section>';
+  }
+
+  function render(){
+    tabs.innerHTML = DEPTS_TABS.map(d => {
+      const icon = (DEPT_META[d]||{}).icon || "";
+      return '<button class="tab '+(d===active?'is-active':'')+'" data-d="'+d+'">'+
+        '<span class="tab-icon">'+icon+'</span>'+
+        '<span class="tab-label">'+d+'</span>'+
+      '</button>';
+    }).join('');
+    tabs.querySelectorAll('button').forEach(b =>
+      b.addEventListener('click', () => { active = b.dataset.d; render(); })
+    );
+
+    if (active === 'All'){
+      grid.innerHTML = DEPT_ORDER.map(d => {
+        const members = TEAM.filter(m => m.dept===d);
+        return members.length ? deptSection(d, members) : '';
+      }).join('');
+    } else {
+      const members = TEAM.filter(m => m.dept===active);
+      grid.innerHTML = deptSection(active, members);
+    }
+  }
+  render();
+  </script>
+</body>
+</html>
